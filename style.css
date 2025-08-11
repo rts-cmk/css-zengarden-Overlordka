@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: rgb(50, 50, 50);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body::after {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: -100px; /* сместить ниже bottom */
+    height: 70%;   /* высота изображения */
+    background: url(imgs/bg.png) no-repeat center top;
+    background-size: contain;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.page-wrapper{
+    background: url(imgs/bg1.svg) no-repeat left top, url(imgs/bg2.svg) no-repeat right top;
+    padding: 10%;
+}
+
+
+.intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px; /* добавляет расстояние между элементами */
+}
+
+.intro > *:nth-child(1) {
+    order: 2; /* перемещает header в центр */
+}
+.intro > *:nth-child(2) {
+    order: 1;
+}
+.intro > *:nth-child(3) {
+    order: 3;
+}
+
+header{
+    background: url(imgs/layers.svg) no-repeat center center;
+    background-size: 300px;
+    width: 100%;
+    height: 100%;
+    padding: 10%;
+}
