@@ -1,9 +1,11 @@
-body{
+body {
     margin: 0;
     padding: 0;
     color: white;
     background-color: rgb(50, 50, 50);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:100vh;
+    overflow: hidden;
 }
 
 body::after {
@@ -12,42 +14,358 @@ body::after {
     position: fixed;
     left: 0;
     right: 0;
-    bottom: -100px; /* сместить ниже bottom */
-    height: 70%;   /* высота изображения */
-    background: url(imgs/bg.png) no-repeat center top;
+    bottom: 0;
+    height: 70%;
+    background: url(imgs/bg.png) no-repeat center bottom;
     background-size: contain;
     pointer-events: none;
     z-index: -1;
 }
 
-.page-wrapper{
+.page-wrapper {
     background: url(imgs/bg1.svg) no-repeat left top, url(imgs/bg2.svg) no-repeat right top;
     padding: 10%;
 }
 
 
-.intro{
+.intro {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    gap: 20px; /* добавляет расстояние между элементами */
+    gap: 20px;
 }
 
-.intro > *:nth-child(1) {
-    order: 2; /* перемещает header в центр */
-}
-.intro > *:nth-child(2) {
+.intro>:nth-child(1) {
     order: 1;
 }
-.intro > *:nth-child(3) {
+
+.intro>:nth-child(2) {
     order: 3;
 }
 
-header{
-    background: url(imgs/layers.svg) no-repeat center center;
-    background-size: 300px;
-    width: 100%;
-    height: 100%;
-    padding: 10%;
+.intro>:nth-child(3) {
+    order: 2;
+}
+
+header {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    z-index: 20;
+    margin: 0 0 0 -190px;
+    padding: 0;
+    width: 450px;
+    background: url(imgs/layer-middle.svg) repeat-y center top;
+    background-size: 450px auto;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+header::before{
+    top: -600px;
+    height: 600px;
+    background: url(imgs/hook3.svg) no-repeat center bottom, url(imgs/layer-frame.svg) no-repeat center 559px;
+    background-size: 360px auto, 450px auto;
+}
+
+header::after {
+    bottom: -41px;
+    height: 41px;
+    background: url(imgs/layer-frame.svg) no-repeat center bottom;
+    background-size: 450px auto;
+}
+
+header::before,
+header::after {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: 450px;
+    content: '';
+}
+
+header h1 {
+    margin-top: 0.3em;
+    font-size: 4em;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1;
+}
+
+header h2 {
+    font-size: 1.1em;
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+}
+
+
+/* Header______________________________________________________________________________________________________________________________ */
+
+.summary {
+    position: absolute;
+    top: 50px;
+    left: 80%;
+    z-index: 10;
+    margin: 0 0 0 -190px;
+    padding: 0;
+    width: 450px;
+    background: url(imgs/layer-middle.svg) repeat-y center top;
+    background-size: 450px auto;
+    text-align: center;
+}
+
+.summary::before{
+    top: -600px;
+    height: 600px;
+    background: url(imgs/hook2.svg) no-repeat center bottom, url(imgs/layer-frame.svg) no-repeat center 559px;
+    background-size: auto auto, 450px auto;
+}
+
+.summary::after {
+    bottom: -41px;
+    height: 41px;
+    background: url(imgs/layer-frame.svg) no-repeat center bottom;
+    background-size: 450px auto;
+}
+
+.summary::before,
+.summary::after {
+    position: absolute;
+    left: 0;
+    z-index: 20;
+    display: block;
+    width: 450px;
+    content: '';
+}
+
+
+.summary p{
+    margin: 1em 3.7em;
+    font-size: 1.2em;
+}
+
+.summary a{
+    font-weight: 500;
+    padding: 0 0.05em;
+    color: black;
+    background-color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Summary______________________________________________________________________________________________________________________________ */
+
+.preamble{
+    position: absolute;
+    top: -500px;
+    left: 20%;
+    z-index: 4;
+    margin: 0 0 0 -190px;
+    padding: 0;
+    width: 450px;
+    background: url(imgs/layer-middle.svg) repeat-y center top;
+    background-size: 450px auto;
+    text-align: center;
+}
+
+.preamble::before{
+    top: -600px;
+    height: 600px;
+    background: url(imgs/hook2.svg) no-repeat center bottom, url(imgs/layer-frame.svg) no-repeat center 559px;
+    background-size: auto auto, 450px auto;
+}
+
+.preamble::after {
+    bottom: -41px;
+    height: 41px;
+    background: url(imgs/layer-frame.svg) no-repeat center bottom;
+    background-size: 450px auto;
+}
+
+.preamble::before,
+.preamble::after {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: 450px;
+    content: '';
+}
+
+.preamble h3 {
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+    
+}
+
+
+.preamble p{
+    margin: 1em 3.7em;
+    font-size: 1.2em;
+    
+}
+
+/* Preamble____________________________________________________________________________________________________________________________ */
+
+.main{
+    position: absolute;
+    top: 400px;
+    left: 70%;
+    z-index: 4;
+    margin: 0 0 0 -190px;
+    padding: 0;
+    width: 550px;
+    background: url(imgs/layer-middle.svg) repeat-y center top;
+    background-size: 550px auto;
+    text-align: center;
+}
+
+.main::before{
+    top: -600px;
+    height: 600px;
+    background: url(imgs/hook3.svg) no-repeat center bottom, url(imgs/layer-frame.svg) no-repeat center 549px;
+    background-size: 450px auto, 550px auto;
+}
+
+.main::after {
+    bottom: -51px;
+    height: 51px;
+    background: url(imgs/layer-frame.svg) no-repeat center bottom;
+    background-size: 550px auto;
+}
+
+
+.main::before,
+.main::after {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    display: block;
+    width: 550px;
+    content: '';
+}
+
+.main h3 {
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.main p{
+    margin: 1em 3.7em;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+.main a{
+    font-weight: 500;
+    padding: 0 0.05em;
+    color: black;
+    background-color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* MAIN____________________________________________________________________________________________________ */
+
+.explanation>:nth-child(1) {
+    left: 70px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.explanation>:nth-child(2) {
+    position: absolute;
+    visibility: hidden;
+}
+
+.explanation>:nth-child(3) {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* _________________________________________________ */
+
+.participation>:nth-child(1) {
+    left: 150px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.participation>:nth-child(2) {
+    position: absolute;
+    visibility: hidden;
+}
+
+.participation>:nth-child(3) {
+    position: absolute;
+    visibility: hidden;
+}
+
+.participation>:nth-child(4) {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* _________________________________________________ */
+
+.benefits>:nth-child(1) {
+    left: 170px;
+    position: absolute;
+    visibility: hidden;
+}
+
+.benefits>:nth-child(2) {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* _________________________________________________ */
+
+.requirements>:nth-child(1) {
+    visibility: visible;
+}
+
+.requirements>:nth-child(2) {
+    position: absolute;
+    visibility: hidden;
+}
+
+.requirements>:nth-child(3) {
+    visibility: visible;
+}
+
+.requirements>:nth-child(4) {
+    position: absolute;
+    visibility: hidden;
+}
+
+.requirements>:nth-child(5) {
+    position: absolute;
+    visibility: hidden;
+}
+
+.requirements>:nth-child(6) {
+    position: absolute;
+    visibility: hidden;
+}
+
+
+
+
+
+footer{
+    display: none;
+
 }
