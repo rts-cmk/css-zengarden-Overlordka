@@ -24,6 +24,7 @@ body::after {
 
 .page-wrapper {
     background: url(imgs/bg1.svg) no-repeat left top, url(imgs/bg2.svg) no-repeat right top;
+    height: 100%;
     padding: 10%;
 }
 
@@ -60,7 +61,11 @@ header {
     background-size: 450px auto;
     text-align: center;
     text-transform: uppercase;
+    transition: transform 1s ease;
+}
 
+header:hover{
+    transform: translateY(300px);
 }
 
 header::before{
@@ -107,8 +112,8 @@ header h2 {
 
 .summary {
     position: absolute;
-    top: 50px;
-    left: 80%;
+    top: -150px;
+    left: 75%;
     z-index: 10;
     margin: 0 0 0 -190px;
     padding: 0;
@@ -116,6 +121,14 @@ header h2 {
     background: url(imgs/layer-middle.svg) repeat-y center top;
     background-size: 450px auto;
     text-align: center;
+    transform: perspective(800px) rotateY(-40deg);
+    transform-style: preserve-3d;
+    color: gray;
+    transition: transform 1s ease;
+}
+.summary:hover {
+    transform: translateY(300px) translateX(-60px) rotateY(0deg);
+    color: white;
 }
 
 .summary::before{
@@ -171,7 +184,16 @@ header h2 {
     background: url(imgs/layer-middle.svg) repeat-y center top;
     background-size: 450px auto;
     text-align: center;
+    transform: perspective(800px) translateX(120px) rotateY(20deg);
+    transform-style: preserve-3d;
+    color: gray;
+    transition: transform 1s ease;
 }
+.preamble:hover {
+    transform: translateY(600px) translateX(200px) rotateY(0deg);
+    color: white;
+}
+
 
 .preamble::before{
     top: -600px;
@@ -215,7 +237,7 @@ header h2 {
 
 /* Preamble____________________________________________________________________________________________________________________________ */
 
-.main{
+/* .main{
     position: absolute;
     top: 400px;
     left: 70%;
@@ -226,6 +248,23 @@ header h2 {
     background: url(imgs/layer-middle.svg) repeat-y center top;
     background-size: 550px auto;
     text-align: center;
+} */
+
+.main {
+    top: 150px;
+    left: 65%;
+    padding: 0;
+    width: 550px;
+    background: url(imgs/layer-middle.svg) repeat-y center top;
+    background-size: 550px auto;
+    transition: 1s ease-in-out;
+    position: relative;
+    transform: perspective(800px) rotateY(-20deg);
+    transform-style: preserve-3d;
+    
+}
+.main:hover {
+    transform: rotateY(0deg);
 }
 
 .main::before{
@@ -254,6 +293,7 @@ header h2 {
 }
 
 .main h3 {
+    text-align: center;
     font-size: 2em;
     margin-top: 0.5em;
     margin-bottom: 0.1em;
@@ -279,93 +319,361 @@ header h2 {
 
 /* MAIN____________________________________________________________________________________________________ */
 
+@keyframes explan {
+    0% { opacity: 0; }
+    1% { opacity: 1; }
+    18% { opacity: 1; }
+    19% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
 .explanation>:nth-child(1) {
+    top: -17px;
     left: 70px;
     position: absolute;
-    visibility: hidden;
+    animation: explan 110s linear infinite;
+}
+
+@keyframes exChild2 {
+    0% { opacity: 0; }
+    1% { opacity: 1; }
+    9% { opacity: 1; }
+    10% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 .explanation>:nth-child(2) {
+    top: 31px;
     position: absolute;
-    visibility: hidden;
+    animation: exChild2 110s linear infinite;
+}
+
+@keyframes exChild3 {
+    0% { opacity: 0; }
+    9% { opacity: 0; }
+    10% { opacity: 1; }
+    18% { opacity: 1; }
+    19% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 .explanation>:nth-child(3) {
+    top: 31px;
     position: absolute;
-    visibility: hidden;
+    animation: exChild3 110s linear infinite;
 }
 
 /* _________________________________________________ */
 
+@keyframes part {
+    0% { opacity: 0; }
+    18% { opacity: 0; }
+    19% { opacity: 1; }
+    45% { opacity: 1; }
+    46% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
 .participation>:nth-child(1) {
+    top: -17px;
     left: 150px;
     position: absolute;
-    visibility: hidden;
+    animation: part 110s linear infinite;
+}
+
+@keyframes partCild2 {
+    0% { opacity: 0; }
+    18% { opacity: 0; }
+    19% { opacity: 1; }
+    27% { opacity: 1; }
+    28% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 .participation>:nth-child(2) {
+    top: 31px;
     position: absolute;
-    visibility: hidden;
+    animation: partCild2 110s linear infinite;
+}
+
+@keyframes partCild3 {
+    0% { opacity: 0; }
+    27% { opacity: 0; }
+    28% { opacity: 1; }
+    36% { opacity: 1; }
+    37% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 .participation>:nth-child(3) {
+    top: 31px;
     position: absolute;
-    visibility: hidden;
+    animation: partCild3 110s linear infinite;
+}
+
+@keyframes partCild4 {
+    0% { opacity: 0; }
+    36% { opacity: 0; }
+    37% { opacity: 1; }
+    45% { opacity: 1; }
+    46% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 .participation>:nth-child(4) {
+    top: 31px;
     position: absolute;
-    visibility: hidden;
+    animation: partCild4 110s linear infinite;
 }
 
 /* _________________________________________________ */
 
+@keyframes benefits {
+    0% { opacity: 0; }
+    45% { opacity: 0; }
+    46% { opacity: 1; }
+    54% { opacity: 1; }
+    55% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
 .benefits>:nth-child(1) {
+    top: -17px;
     left: 170px;
     position: absolute;
-    visibility: hidden;
+    animation: benefits 110s linear infinite;
 }
 
 .benefits>:nth-child(2) {
     position: absolute;
-    visibility: hidden;
+    top: 31px;
+    animation: benefits 110s linear infinite;
 }
 
 /* _________________________________________________ */
 
+@keyframes require {
+    0% { opacity: 0; }
+    54% { opacity: 0; }
+    55% { opacity: 1; }
+    99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 .requirements>:nth-child(1) {
-    visibility: visible;
+    animation: require 110s linear infinite;
+}
+
+@keyframes requireChild2 {
+    0% { opacity: 0; }
+    54% { opacity: 0; }
+    55% { opacity: 1; }
+    63% { opacity: 1; }
+    64% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 .requirements>:nth-child(2) {
     position: absolute;
-    visibility: hidden;
+    top: 31px;
+    animation: requireChild2 110s linear infinite;
+}
+
+@keyframes requireChild3 {
+    0% { opacity: 0; }
+    63% { opacity: 0; }
+    64% { opacity: 1; }
+    72% { opacity: 1; }
+    73% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 .requirements>:nth-child(3) {
-    visibility: visible;
+    animation: requireChild3 110s linear infinite;
+}
+
+@keyframes requireChild4 {
+    0% { opacity: 0; }
+    72% { opacity: 0; }
+    73% { opacity: 1; }
+    81% { opacity: 1; }
+    82% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 .requirements>:nth-child(4) {
     position: absolute;
-    visibility: hidden;
+    top: 31px;
+    animation: requireChild4 110s linear infinite;
+}
+
+@keyframes requireChild5 {
+    0% { opacity: 0; }
+    81% { opacity: 0; }
+    82% { opacity: 1; }
+    90% { opacity: 1; }
+    91% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 .requirements>:nth-child(5) {
     position: absolute;
-    visibility: hidden;
+    top: 31px;
+    animation: requireChild5 110s linear infinite;
+}
+
+@keyframes requireChild6 {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    91% { opacity: 1; }
+    99% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 .requirements>:nth-child(6) {
     position: absolute;
-    visibility: hidden;
+    top: 31px;
+    animation: requireChild6 110s linear infinite;
 }
 
+
+/* Explanation __________________________________________________________________________________________________________________________*/
+
+/* .sidebar {
+    position: absolute;
+    top: 350px;
+    left: 40%;
+    z-index: 4;
+    margin: 0 0 0 -190px;
+    padding: 0;
+    width: 620px;
+    background: url(imgs/layer-middle.svg) repeat-y center top;
+    background-size: 620px auto;
+} */
+
+.sidebar {
+    top: -400px;
+    left: -7%;
+    padding: 0;
+    width: 620px;
+    background: url(imgs/layer-middle.svg) repeat-y center top;
+    background-size: 620px auto;
+    transition: 1s ease-in-out;
+    position: relative;
+    transform: perspective(800px) rotateY(20deg);
+    transform-style: preserve-3d;
+    
+}
+.sidebar:hover {
+    transform: rotateY(0deg);
+}
+
+/* tansform: rotateY(40deg); */
+
+
+.sidebar::before{
+    top: -600px;
+    height: 600px;
+    background: url(imgs/hook3.svg) no-repeat center bottom, url(imgs/layer-frame.svg) no-repeat center 549px;
+    background-size: 450px auto, 620px auto;
+}
+
+.sidebar::after {
+    bottom: -51px;
+    height: 51px;
+    background: url(imgs/layer-frame.svg) no-repeat center bottom;
+    background-size: 620px auto;
+}
+
+.sidebar::before,
+.sidebar::after {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    display: block;
+    width: 620px;
+    content: '';
+}
+
+.wrapper{
+    margin: 20px 70px;
+}
+
+.wrapper h3{
+    text-transform: uppercase;
+    font-size: 23px;
+}
+
+
+.design-archives{
+    position: absolute;
+    top: 0;
+    left: 370px;
+    width: 200px;
+    text-align: center;
+}
+
+.zen-resources{
+    position: absolute;
+    top: 160px;
+    left: 370px;
+    width: 200px;
+    text-align: center;
+}
+
+
+/* Designsec ___________________________________________________________________________________________________________________________*/
+
+.design-selection{
+    width: 300px;
+    position: relative; /* Added to allow absolute positioning of children */
+}
+
+.select{
+    margin-bottom: 0.5em;
+}
+
+.design-selection ul>li{
+    margin-bottom: 10px;
+}
+
+.wrapper ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.design-name{
+    text-decoration: none;
+    color: white;
+}
+
+.designer-name {
+    background-color: rgb(35, 35, 35);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.5em;
+    display: block;
+}
+
+
+.design-archives li,
+.zen-resources li {
+    font-size: 1.3em;
+    margin: 1em 0;
+}
+
+.design-archives a,
+.zen-resources a {
+    text-decoration: none;
+    color: white;
+}
 
 
 
 
 footer{
     display: none;
-
 }
